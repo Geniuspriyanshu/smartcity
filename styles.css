@@ -1,0 +1,133 @@
+/* styles.css */
+/* Reset-ish */
+:root{
+  --bg:#0f172a;
+  --card:#0b1220;
+  --muted:#9aa8b2;
+  --accent:#0b9458;
+  --accent-2:#06b6d4;
+  --glass: rgba(255,255,255,0.03);
+  --max-width:1200px;
+  --container-padding:20px;
+  --radius:12px;
+  --transition:220ms cubic-bezier(.2,.9,.2,1);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:linear-gradient(180deg,#071226 0%, #071722 100%);
+  color:#e6eef3;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+
+/* container */
+.container{max-width:var(--max-width); margin:0 auto; padding:24px var(--container-padding);}
+
+/* header */
+.site-header{
+  position:sticky; top:0; z-index:40;
+  backdrop-filter: blur(6px);
+  background: linear-gradient(180deg, rgba(5,7,11,0.6), rgba(5,7,11,0.35));
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.header-grid{
+  display:grid; grid-template-columns: 1fr auto auto; gap:12px; align-items:center;
+}
+.logo{font-weight:700; text-decoration:none; color:#fff; font-size:18px}
+.logo span{color:var(--accent)}
+.main-nav a{margin:0 10px; color:var(--muted); text-decoration:none; font-size:14px}
+.header-actions{display:flex; gap:10px; align-items:center}
+.search{background:var(--glass); border:1px solid rgba(255,255,255,0.03); padding:8px 12px; border-radius:8px; color: #e6eef3}
+
+/* buttons */
+.btn{
+  padding:8px 12px; border-radius:10px; border:1px solid rgba(255,255,255,0.04);
+  background:transparent; color:inherit; cursor:pointer; transition:var(--transition);
+}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#001; border:none}
+.btn.ghost{background:transparent; border:1px dashed rgba(255,255,255,0.04)}
+
+/* hero */
+.hero{padding:56px 0 32px; position:relative}
+.hero-inner{display:grid; grid-template-columns: 1fr 420px; gap:36px; align-items:center}
+.hero-text h1{font-size:36px; margin:0 0 12px}
+.lead{color:var(--muted); margin-bottom:18px}
+.hero-visual .map-placeholder{width:100%; height:260px; border-radius:12px; overflow:hidden; box-shadow:0 8px 30px rgba(3,6,12,0.6); display:flex; align-items:center; justify-content:center}
+
+/* hero scroll hint */
+.hero-scroll-hint{position:absolute; left:50%; transform:translateX(-50%); bottom:8px; color:var(--muted); font-size:13px}
+
+/* controls */
+.controls{padding-bottom:0}
+.controls-grid{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+.control-group{display:flex; flex-direction:column; min-width:150px}
+.control-group label{font-size:13px; color:var(--muted); margin-bottom:6px}
+.control-group select{padding:8px 10px; border-radius:8px; border:none; background:var(--glass); color:inherit}
+
+/* projects grid */
+.projects{padding-top:28px; padding-bottom:40px}
+.projects-grid{display:grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap:18px; margin-top:18px}
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:12px; padding:16px; border:1px solid rgba(255,255,255,0.03);
+  display:flex; flex-direction:column; gap:12px; min-height:160px;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.card:hover{transform:translateY(-6px); box-shadow:0 20px 40px rgba(2,6,12,0.7)}
+.card .tag{font-size:12px; color:var(--muted); background:rgba(255,255,255,0.02); padding:4px 8px; border-radius:999px; display:inline-block}
+.card h3{margin:0 0 6px; font-size:18px}
+.card p{margin:0; color:var(--muted); font-size:14px}
+.card .meta{display:flex; gap:10px; align-items:center; color:var(--muted); font-size:13px}
+
+/* load more */
+.load-more-wrap{display:flex; justify-content:center; margin-top:18px}
+
+/* timeline */
+.timeline{padding:36px 0; background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00))}
+.timeline-list{list-style:none; padding:0; margin:0}
+.timeline-list li{padding:18px; border-left:3px solid rgba(255,255,255,0.03); margin-left:8px; margin-bottom:12px}
+.timeline-list li h4{margin:0 0 6px}
+
+/* systems */
+.systems-grid{display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:18px; margin-top:18px}
+.system-card{background:var(--glass); padding:16px; border-radius:12px}
+.progress{height:10px; background:rgba(255,255,255,0.03); border-radius:8px; overflow:hidden}
+.progress-bar{height:100%; background:linear-gradient(90deg,var(--accent),var(--accent-2)); transition:width 700ms ease}
+
+/* deep dive */
+.deep-content{background:linear-gradient(0deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:18px; border-radius:12px}
+
+/* contact form */
+.contact-form{display:flex; flex-direction:column; gap:10px}
+.form-row{display:flex; gap:10px}
+.contact-form input, .contact-form textarea{padding:10px; border-radius:8px; border:none; background:rgba(255,255,255,0.03); color:inherit}
+.form-actions{display:flex; gap:8px; align-items:center}
+
+/* footer */
+.site-footer{padding:18px 0; border-top:1px solid rgba(255,255,255,0.02); margin-top:36px}
+.footer-grid{display:flex; justify-content:space-between; gap:10px; align-items:center; flex-wrap:wrap}
+.muted{color:var(--muted); font-size:13px}
+
+/* modal */
+.modal{position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:linear-gradient(180deg, rgba(2,6,12,0.6), rgba(2,6,12,0.85)); z-index:60}
+.modal[aria-hidden="false"]{display:flex}
+.modal-panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:12px; width:min(900px,96%); max-height:86vh; overflow:auto; padding:18px; position:relative}
+.modal-close{position:absolute; right:12px; top:12px; background:transparent; border:none; font-size:22px; color:var(--muted); cursor:pointer}
+
+/* small screens */
+@media (max-width:900px){
+  .hero-inner{grid-template-columns:1fr; gap:18px}
+  .header-grid{grid-template-columns: 1fr auto; align-items:center}
+  .header-actions{display:none}
+  .form-row{flex-direction:column}
+}
+
+/* utility classes */
+.stretch{flex:1}
+.hidden{display:none}
